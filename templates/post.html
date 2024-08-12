@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+POST
+{% endblock %}
+
+
+{% block content %}
+    
+
+    <div class="container">
+        <div class="col s12 m8">
+            <h3>{{post.title}}</h3>
+            <p>{{post.cat.title}}</p>  
+            <!-- <img src="/media/{{post.image}}" class="responsive-img"  alt="" style="width: 100%; height: 450px;" align="center"> -->
+            <br>
+            <p>
+                {{post.content | safe}}
+            </p>
+        </div>
+
+        <div class="col s12 m4">
+            {% for cat in cats %}
+            <div class="card" style="margin-left: 10px;">
+
+                <div class="card-content">
+                    <div class="card-title">
+                        {{cat.title}}
+                    </div>
+                    <p class="truncate">{{cat.description}}</p>
+                    <div class="container center-align m20">
+                        <a href="/blogCategories/{{cat.url}}" class="btn bg-primary"> VIEW </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+{% endblock %}

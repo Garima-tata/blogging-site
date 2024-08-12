@@ -1,0 +1,35 @@
+home.html
+
+<!-- {% if request.user.is_authenticated %}
+    <button class="btn" style="padding: 10px; background-color: cadetblue; border-radius: 50px; display: flex; align-items: center; justify-content: center;">
+        <a href="/static/assets/Resume.pdf" target="_blank" style="color: black; text-decoration: none;">Resume</a>
+    </button> -->
+<!-- {% endif %} -->
+
+
+
+header.html
+
+
+<!-- {% if user.is_superuser %} -->
+              <!-- <li><a href="/magic/">Magic</a></li> -->
+              <!-- <li><a href="/admin/">Admin</a></li> -->
+          <!-- {% endif %} -->
+
+          <!-- {% if user.is_authenticated %}
+          <li><a href="/logout/"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a></li>
+          {% else %}
+          <li><a href="/login/"><i class="fas fa-sign-in-alt"></i>&nbsp; Login</a></li>
+          {% endif %} -->
+
+
+<!-- {% if user.is_superuser %} -->
+              <!-- <li><a href="/magic/">Magic</a></li> -->
+              <!-- <li><a href="/admin/">Admin</a></li> -->
+          <!-- {% endif %} -->
+
+          <!-- {% if user.is_authenticated %}
+              <li><a href="/logout"><i class="fas fa-sign-in-alt"></i>&nbsp;  Logout</a></li>
+          {% elif not user.logged_in %}
+              <li><a href="/login"><i class="fas fa-sign-out-alt"></i>&nbsp;  Login</a></li>
+          {% endif %} -->

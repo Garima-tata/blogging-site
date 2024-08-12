@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Dropdown Structure -->
+<!-- <div style="background-color: lightgreen; padding-top: 10px; padding-bottom: 10px;"> -->
+    <div>
+        <ul id="dropdown1" class="dropdown-content" >
+          {% for cat in cats %}
+            <li><a href="/blogCategories/{{cat.url}}/">{{cat.title}}</a></li>
+          {% endfor %}
+        </ul>
+        
+        
+        <nav class="bg-primary">
+          <div class="nav-wrapper">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <div class="container">
+              <div class="nav-wrapper">
+                  <a href="/" class="brand-logo">Blogs</a>
+                  <ul class="right hide-on-med-and-down">
+                    
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/create/">Create</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <!-- <li><a href="/admin/">Admin</a></li> -->
+        
+        
+                    {% if user.is_authenticated and user.is_superuser %}
+                      <li><a href="/admin/">Admin</a></li>
+                    {% endif %}
+        
+                    
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li>
+                      <form method="GET" action="/">
+                        {% csrf_token %}
+                        <!-- <div class="w3-half"><i class="material-icons">search</i>
+                          <input type="text" class="w3-amber w3-border-0 w3-padding" style="width:100%">
+                        </div> -->
+                        <div class="input-field">
+                          <input id="search" type="search" name="search">
+                          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                          <i class="material-icons">close</i>
+                        </div>
+                      </form>
+                    </li>
+                    <li><a href="/logout/">Logout</a></li>
+                  </ul>
+                </div>
+          </div>
+          </div>
+        </nav>
+        </div>
+          <ul class="sidenav" id="mobile-demo">
+          <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Blogs</a>
+                <ul class="right hide-on-med-and-down">
+                  
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/create/">Create</a></li>
+                  <li><a href="/about/">About</a></li>
+        
+                  {% if user.is_authenticated and user.is_superuser %}
+                    <li><a href="/admin/">Admin</a></li>
+                  {% endif %}
+        
+                  
+                  <!-- Dropdown Trigger -->
+                  <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+                  <li>
+                    <form method="GET" action="/">
+                      {% csrf_token %}
+                      <div class="input-field">
+                        <input id="search" type="search" name="search">
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                      </div>
+                    </form>
+                  </li>
+                  <li><a href="/logout/">Logout</a></li>
+                </ul>
+              </div>
+        </div>
+        </ul>
+        
+          <!-- <div class="nav-wrapper">
+            <div class="container">
+              <form>
+                <div class="input-field" style="background-color: #ecb1b3; color: black;border-radius: 7px;padding: 2px ;display: flex; justify-content: flex-end;">
+                  <input id="search" type="search" style="background-color: #ecb1b3;">
+                  <label class="label-icon" style="margin-top: 5px; color: black;" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </div> -->
+         
+          
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                  var elems = document.querySelectorAll('.sidenav');
+                  var instances = M.Sidenav.init(elems, options);
+              });
+        
+              // Or with jQuery
+        
+              $(document).ready(function(){
+                  $('.sidenav').sidenav();
+              }); 
+        </script>

@@ -1,0 +1,76 @@
+<!-- Dropdown Structure -->
+<!-- <div style="background-color: lightgreen; padding-top: 10px; padding-bottom: 10px;"> -->
+  <div>
+    <ul id="dropdown1" class="dropdown-content" >
+      {% for cat in cats %}
+        <li><a href="/blogCategories/{{cat.url}}/">{{cat.title}}</a></li>
+      {% endfor %}
+    </ul>
+      <nav class="bg-primary">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Blogs</a>
+                <ul class="right hide-on-med-and-down">
+                  
+
+
+                  <li>
+
+                    <form method="GET" action="{% url 'home' %}">
+                      {% csrf_token %}
+                      <div style="display: flex; flex-direction: row;">
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <input id="search" type="search" name="search">
+                      </div>
+                    </form>
+                  </li>
+
+
+
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/create/">Create</a></li>
+                  <li><a href="/about/">About</a></li> 
+                  <!-- <li><a href="/admin/">Admin</a></li> -->
+    
+    
+                  {% if user.is_authenticated and user.is_superuser %}
+                    <li><a href="/admin/">Admin</a></li>
+                  {% endif %}
+    
+                  
+                  <!-- Dropdown Trigger -->
+                  <!-- {% if request.path == "/" %}
+                    <li><a class="dropdown-trigger" href="/" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+                  {% endif %} -->
+
+                  <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+                  
+
+
+
+                  <ul class="right">
+                    Logout
+                    <li><a href="/logout/" class="label-icon">
+                        <i class="material-icons">logout</i>
+                      </a></li>
+                  </ul>
+
+                  
+                </ul>
+              </div>
+        </div>
+      </nav>
+    </div>
+    
+      <!-- <div class="nav-wrapper">
+        <div class="container">
+          <form>
+            <div class="input-field" style="background-color: #ecb1b3; color: black;border-radius: 7px;padding: 2px ;display: flex; justify-content: flex-end;">
+              <input id="search" type="search" style="background-color: #ecb1b3;">
+              <label class="label-icon" style="margin-top: 5px; color: black;" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </div> -->
+      

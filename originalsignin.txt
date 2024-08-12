@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - GTata</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Compiled and minified JavaScript -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container">
+        <b><h1>GTata</h1></b>
+                   
+            <a href="/signup" class="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white">Register</a>
+
+
+                <h1 class="lg:text-3xl text-xl font-semibold  mb-6"> Log in</h1>
+
+                <div>
+                    <style>
+                        h5{
+                            color: red;
+                        }
+                    </style>
+                    {% for message in messages %}
+                        <h5>{{ message }}</h5>
+                    {% endfor %}
+                </div>
+
+
+                <form action="" method="POST">
+
+                    {% csrf_token %}
+
+                    <input type="text"     name="username" placeholder="Username" class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    <input type="password" name="password" placeholder="password" class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
+                    
+                    <div class="flex justify-between my-4">
+                        <div class="checkbox">
+                            <input type="checkbox" id="chekcbox1" checked>
+                            <label for="chekcbox1"><span class="checkbox-icon"></span>Remember Me</label>
+                        </div>
+                        <a href="#"> Forgot Your Password? </a>
+                    </div>
+
+
+                    <button type="submit" class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Login</button>
+                    <div class="text-center mt-5 space-x-2">
+                        <p class="text-base"> Not registered? <a href="/signup" class=""> Create a account </a></p>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+        
+        <!-- Footer -->
+
+        
+
+
+        <footer class="page-footer bg-primary">
+            <div class="container">
+                <div class="flex space-x-2 text-gray-700 uppercase">
+                    <a href="#" style="color: black;"> About</a>
+                    <a href="#" style="color: black;"> Help</a>
+                    <a href="#" style="color: black;"> Terms</a>
+                    <a href="#" style="color: black;"> Privacy</a>
+                </div>
+                <p class="capitalize"> © copyright 2020 by socol</p>
+            </div>
+               
+          </footer>
+        </div>
+
+
+
+
+
+
+
+
+          <script>    
+            M.AutoInit();
+        </script>
+        
+        
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script>
+            $(document).ready(function(){
+                $(".owl-carousel").owlCarousel(
+                    {
+                        loop:true,
+                        responsiveClass:true,
+                        autoplay:true,
+                        autoplayTimeout: 2000,
+                        nav:false,
+                        responsive:{
+                            0:{
+                                items:1,
+                                nav:true
+                            },
+                            600:{
+                                items:3,
+                                nav:false
+                            },
+                            1000:{
+                                items:3,
+                                nav:true,
+                                loop:true
+                            }
+                        }
+                    }
+                    
+                );
+            });
+            
+        </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div>
+    <!-- <div style="background-color: lightgreen; padding-top: 10px;"> -->
+    <div style="text-align: center; width: 100%;">
+        <h3><i>Welcome to the world of blogging</i> </h3>
+    </div>
+    <div class="container-custom">
+        <div class="owl-carousel">
+            {% for cat in cats reversed %}
+            <div class="card" style="margin-left: 10px;">
+                <div class="img-container" style="height: 200px; ">
+                    <img src="/media/{{cat.image}}" class="responsive-img" style="height: 250px; " alt="">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">
+                        {{cat.title}}
+                    </div>
+                    <p class="truncate">{{cat.description}}</p>
+                    <div class="container center-align m20">
+                        <a href="/blogCategories/{{cat.url}}" class="btn bg-primary"> VIEW </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                {% for p in posts %}
+                <div class="row" >
+
+
+                    <div class="col s12 m2">
+                        <img src="/media/{{p.image}}" class="responsive-img" style="margin-top: 50px; height: 250px; width: 300px;" alt="">
+                    </div>
+
+                    <div class="col s12 m10">
+                        <h1>{{p.title | safe}}</h1>
+                        
+                        <br>
+                        {{p.content | truncatewords:110 | safe |striptags}}'
+                        <br>
+
+                        <div>
+                            <a href="/blog/{{p.url}}" class="btn bg-primary">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
